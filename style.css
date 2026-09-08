@@ -92,3 +92,96 @@
     transform: translateX(-50%);
   }
 } 
+
+.btn:active, 
+.social-icon-sm:active, 
+.social-icon-lg:active {
+  animation: clickPulse 0.25s ease-in-out;
+}
+
+/* ==========================================
+   HOVER EFFECT KARTU PROJECT & PENGALAMAN
+   ========================================== */
+
+/* Transisi Halus pada Kartu */
+#project .card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s ease, 
+              border-color 0.3s ease !important;
+}
+
+/* Efek Hover pada Kartu */
+#project .card:hover {
+  transform: translateY(-8px) !important; /* Kartu naik sedikit ke atas */
+  border-color: var(--accent) !important; /* Garis tepi berubah jadi biru aksen */
+  box-shadow: 0 12px 24px rgba(2, 132, 199, 0.2) !important; /* Bayangan lembut membesar */
+}
+
+/* Efek Gerak Ikon Panah saat Kartu di-Hover */
+#project .card .bi-box-arrow-up-right {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+#project .card:hover .bi-box-arrow-up-right {
+  transform: translate(3px, -3px); /* Panah bergeser sedikit ke kanan-atas */
+}
+
+/* ==========================================
+   HOVER MENU NAVIGASI SIDEBAR (OPSI 2)
+   ========================================== */
+.sidebar-fixed .nav-link {
+  transition: all 0.3s ease !important;
+  padding: 6px 16px !important;
+  border-radius: 20px;
+}
+
+.sidebar-fixed .nav-link:hover {
+  color: var(--accent) !important;
+  background-color: rgba(2, 132, 199, 0.12); /* Latar belakang biru transparan */
+  transform: scale(1.08); /* Teks membesar halus */
+}
+  
+/* ==========================================
+   ANIMASI HOVER & KLIK SECTION CONTACT
+   ========================================== */
+
+/* Transisi Halus untuk Tombol Contact */
+#contact a {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Efek Hover: Tombol Terangkat & Berwarna Aksen Penuh */
+#contact a:hover {
+  transform: translateY(-4px) !important; /* Tombol melayang naik ke atas */
+  background-color: var(--accent) !important; /* Latar berubah jadi biru aksen */
+  color: #ffffff !important; /* Teks & ikon berubah jadi putih */
+  border-color: var(--accent) !important;
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.25) !important; /* Bayangan berpendar */
+}
+
+/* Efek Klik: Tombol Ditekan */
+#contact a:active {
+  transform: translateY(0) scale(0.95) !important;
+}
+
+/* Base Transisi Ikon */
+#contact a i {
+  transition: transform 0.3s ease !important;
+  display: inline-block;
+}
+
+/* Animasi Ikon Email saat Hover (Miring & Membesar) */
+#contact a:hover .bi-envelope-fill {
+  transform: scale(1.25) rotate(-10deg);
+}
+
+/* Animasi Ikon WhatsApp saat Hover (Miring & Membesar) */
+#contact a:hover .bi-whatsapp {
+  transform: scale(1.25) rotate(10deg);
+}
+
+/* Animasi Ikon Instagram saat Hover (Miring & Membesar) */
+#contact a:hover .bi-instagram {
+  transform: scale(1.25) rotate(-12deg);
+}
