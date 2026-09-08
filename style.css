@@ -1,0 +1,94 @@
+:root {
+  --bs-body-bg: #eaf4fc;        /* Background utama: Biru Muda Lembut */
+  --bs-body-color: #0f172a;     /* Teks utama: Biru Slate Gelap */
+  --bs-tertiary-bg: #ffffff;    /* Background Card & Sidebar: Putih Bersih */
+  --bs-border-color: #bae6fd;   /* Garis Tepi: Biru Muda */
+  --accent: #0284c7;            /* Warna Aksen: Biru Cerah */
+}
+
+/* Penyesuaian warna teks sekunder agar terbaca jelas di background terang */
+.text-secondary {
+  color: #475569 !important;
+}
+
+/* Utility Helper Classes */
+.text-accent {
+  color: var(--accent) !important;
+}
+
+.border-accent {
+  border-color: var(--accent) !important;
+}
+
+.section-max-width {
+  max-width: 760px;
+}
+
+.avatar-box {
+  width: 140px;
+  height: 140px;
+}
+
+.social-icon-sm {
+  width: 36px;
+  height: 36px;
+}
+
+.social-icon-lg {
+  width: 42px;
+  height: 42px;
+}
+
+/* Penyesuaian Tombol Sosial */
+.btn-outline-secondary {
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Sidebar Position Control (Fixed di Desktop) */
+@media (min-width: 820px) {
+  .sidebar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1000;
+  }
+  .content-wrapper {
+    margin-left: 250px;
+  }
+}
+
+/* Marquee / Running Text Animation */
+.marquee-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: scroll-left 26s linear infinite;
+}
+
+.marquee-item::after {
+  content: "✦";
+  color: var(--accent);
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+} 
