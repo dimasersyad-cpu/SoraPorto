@@ -14,17 +14,39 @@
 </head>
 <body>
 
-  <!-- Sidebar Navbar -->
-  <aside class="sidebar-fixed bg-body-tertiary border-end d-flex flex-column justify-content-between p-4 text-center">
-    <div>
-      <div class="fw-bold fs-5 text-accent">DIMAS PORTO'S</div>
-    </div>
+  <!-- Overlay latar belakang saat menu mobile terbuka -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    <nav class="nav flex-column gap-3 my-4">
-      <a class="nav-link text-body fw-semibold px-0" href="#about">About</a>
-      <a class="nav-link text-body fw-semibold px-0" href="#project">Project</a>
-      <a class="nav-link text-body fw-semibold px-0" href="#contact">Contact</a>
-    </nav>
+<!-- Header Mobile (Hanya muncul di layar HP / < 820px) -->
+<header class="mobile-header d-flex justify-content-between align-items-center p-3 bg-body-tertiary border-bottom d-md-none">
+  <div class="fw-bold fs-5 text-accent">DIMAS PORTO'S</div>
+  <button class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center social-icon-sm" id="menuToggle" aria-label="Toggle Navigation">
+    <i class="bi bi-list fs-4"></i>
+  </button>
+</header>
+
+<!-- Sidebar Navbar (Tambahkan tombol Close 'bi-x-lg' di dalamnya) -->
+<aside class="sidebar-fixed bg-body-tertiary border-end d-flex flex-column justify-content-between p-4 text-center">
+  <div>
+    <!-- Baris Judul Sidebar + Tombol Close di Mobile -->
+    <div class="d-flex justify-content-between align-items-center mb-2 mb-md-0">
+      <div class="fw-bold fs-5 text-accent w-100 text-md-center">DIMAS PORTO'S</div>
+      <button class="btn btn-sm d-md-none text-secondary p-0" id="menuClose" aria-label="Close Navigation">
+        <i class="bi bi-x-lg fs-5"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav flex-column gap-3 my-4">
+    <a class="nav-link text-body fw-semibold px-0" href="#about">About</a>
+    <a class="nav-link text-body fw-semibold px-0" href="#project">Project</a>
+    <a class="nav-link text-body fw-semibold px-0" href="#contact">Contact</a>
+  </nav>
+
+  <div class="d-flex justify-content-center gap-3">
+    <!-- Icon Social Media Kamu -->
+  </div>
+</aside>
 
    <div class="d-flex justify-content-center gap-3">
   <a href="https://github.com/dimasersyad-cpu" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm rounded-circle d-flex align-items-center justify-content-center social-icon-sm" aria-label="GitHub">
@@ -161,5 +183,33 @@
 
   <!-- Bootstrap 5 JS Bundle CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const menuClose = document.getElementById('menuClose');
+  const sidebar = document.querySelector('.sidebar-fixed');
+  const overlay = document.getElementById('sidebarOverlay');
+  const navLinks = document.querySelectorAll('.sidebar-fixed .nav-link');
+
+  function openMenu() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    // Otomatis menutup menu saat salah satu link navigasi diklik
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+</script>
 </body>
 </html>
